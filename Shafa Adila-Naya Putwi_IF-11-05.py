@@ -2,7 +2,6 @@ import time
 import matplotlib.pyplot as plt
 from prettytable import PrettyTable
 
-#
 def penyebaran_dbd_rekursif(kepadatan_penduduk, suhu_rata_rata, kelembapan_udara, dbd_dict, index=0):
     keys = list(dbd_dict.keys())
     if index >= len(keys):
@@ -11,14 +10,12 @@ def penyebaran_dbd_rekursif(kepadatan_penduduk, suhu_rata_rata, kelembapan_udara
         return dbd_dict[keys[index]]
     return penyebaran_dbd_rekursif(kepadatan_penduduk, suhu_rata_rata, kelembapan_udara, dbd_dict, index + 1)
 
-#
 def penyebaran_dbd_iteratif(kepadatan_penduduk, suhu_rata_rata, kelembapan_udara, dbd_dict):
     for (batas_kepadatan, batas_suhu, batas_kelembapan), tingkat in dbd_dict.items():
         if kepadatan_penduduk <= batas_kepadatan and suhu_rata_rata <= batas_suhu and kelembapan_udara <= batas_kelembapan:
             return tingkat
     return "Tidak ditemukan tingkat penyebaran"
 
-#
 dbd_dict = {
     (10000, 30, 70): "Rendah", (15000, 32, 75): "Sedang", (20000, 35, 80): "Tinggi",
     (25000, 37, 85): "Sangat Tinggi", (30000, 40, 90): "Ekstrem"
